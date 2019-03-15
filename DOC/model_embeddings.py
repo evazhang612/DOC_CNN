@@ -72,11 +72,12 @@ class ModelEmbeddings(nn.Module):
         x_emb = self.embeddings(input) #x_emb = charEmbedding(xpadded )
         # (sentence_length, batch, max_word_length, char_embed_size) = x_emb.size()
 
-        x_reshaped = x_emb.transpose(2,3)
+#         x_reshaped = x_emb.transpose(2,3)
 
-        x_reshaped = x_reshaped.view(batch*sentence_length, self.e_char, max_word_length)
+#         x_reshaped = x_reshaped.view(batch*sentence_length, self.e_char, max_word_length)
 
-        # print(x_reshaped.size())
+#         # print(x_reshaped.size())
+        x_reshaped = x_emb
 
         x_convout = self.cnnlay(x_reshaped) 
 
